@@ -3,6 +3,8 @@ import os
 import tkinter as tk
 from tkinter import filedialog
 
+from config import RUTA_BASE
+
 def seleccionar_archivo_modelo():
     root = tk.Tk()
     root.withdraw()
@@ -23,7 +25,7 @@ def seleccionar_archivo_video():
     root.destroy()
     return archivo
 
-direccionDatos = "D:/progra/IA/proyectoFinal/Data"
+direccionDatos = f"{RUTA_BASE}/Data"
 direccionImagenes = os.listdir(direccionDatos)
 print('Lista de personas: ' + str(direccionImagenes))
 

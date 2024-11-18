@@ -4,6 +4,8 @@ import numpy as np
 import tkinter as tk
 from tkinter import simpledialog
 
+from config import RUTA_BASE
+
 def obtener_nombre_archivo():
     root = tk.Tk()
     root.withdraw()
@@ -11,7 +13,7 @@ def obtener_nombre_archivo():
     root.destroy()
     return nombre_archivo
 
-direccionDatos = "D:/progra/IA/proyectoFinal/Data"
+direccionDatos = f"{RUTA_BASE}/Data"
 listaPersonas = os.listdir(direccionDatos)
 print('Lista de personas: ' + str(listaPersonas))
 
@@ -44,7 +46,7 @@ detectorRostros.train(datosCaras, np.array(etiquetas))
 
 nombreArchivo = obtener_nombre_archivo()
 if nombreArchivo:
-    rutaModelo = f'D:/progra/IA/proyectoFinal/Modelos/{nombreArchivo}.xml'
+    rutaModelo = f'C:/Users/pabli/AvanceIA/IAReconocimientoSupervisado/Modelos/{nombreArchivo}.xml'
     detectorRostros.write(rutaModelo)
     print(f"Modelo almacenado como {rutaModelo}")
 else:

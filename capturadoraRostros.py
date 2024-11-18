@@ -3,6 +3,7 @@ import cv2
 import os
 import imutils
 from tkinter import filedialog
+from config import RUTA_BASE
 
 root = tk.Tk()
 root.geometry("400x200")
@@ -28,7 +29,7 @@ boton.pack(pady=10)
 
 root.mainloop()
 
-direccionDatos = "D:/progra/IA/proyectoFinal/Data"
+direccionDatos = f"{RUTA_BASE}/Data"
 direccionPersona = direccionDatos + "/" + nombrePersona
 print(direccionPersona)
 if not os.path.exists(direccionPersona):

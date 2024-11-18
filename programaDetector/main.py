@@ -1,16 +1,26 @@
-import cv2  # Importar la librería OpenCV para trabajar con visión por computadora
+
+import os
+import sys
+import cv2
+
+# Asegura que el directorio base esté en el sys.path solo cuando se ejecute este archivo
+base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.insert(0, base_dir)
+
+
+from config import RUTA_BASE  # Importar la librería OpenCV para trabajar con visión por computadora
 
 # Archivos de configuración y modelos para la detección de rostros
-prototipo_rostro = "D:/progra/IA/proyectoFinal/programaDetector/opencv_face_detector.pbtxt"
-modelo_rostro = "D:/progra/IA/proyectoFinal/programaDetector/opencv_face_detector_uint8.pb"
+prototipo_rostro = f"{RUTA_BASE}/programaDetector/opencv_face_detector.pbtxt"
+modelo_rostro = f"{RUTA_BASE}/programaDetector/opencv_face_detector_uint8.pb"
 
 # Archivos de configuración y modelos para la estimación de edad
-prototipo_edad = "D:/progra/IA/proyectoFinal/programaDetector/age_deploy.prototxt"
-modelo_edad = "D:/progra/IA/proyectoFinal/programaDetector/age_net.caffemodel"
+prototipo_edad = f"{RUTA_BASE}/programaDetector/age_deploy.prototxt"
+modelo_edad = f"{RUTA_BASE}/programaDetector/age_net.caffemodel"
 
 # Archivos de configuración y modelos para la estimación de género
-prototipo_genero = "D:/progra/IA/proyectoFinal/programaDetector/gender_deploy.prototxt"
-modelo_genero = "D:/progra/IA/proyectoFinal/programaDetector/gender_net.caffemodel"
+prototipo_genero = f"{RUTA_BASE}/programaDetector/gender_deploy.prototxt"
+modelo_genero = f"{RUTA_BASE}/programaDetector/gender_net.caffemodel"
 
 # Función para detectar rostros y dibujar rectángulos alrededor de ellos
 def dibujar_rectangulos(red_rostros, cuadro):
